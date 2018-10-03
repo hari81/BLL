@@ -1,0 +1,98 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using BLL.Core.Domain;
+
+namespace BLL.Core.ViewModel
+{
+    public class ComponentViewViewModel
+    {
+        public int Id { get; set; }
+        public int EquipmentId { get; set; }
+        public CompartV Compart { get; set; }
+        public Side Side { get; set; }
+        public int Life { get; set; }
+        public DateTime Date { get; set; }
+        public decimal Worn { get; set; }
+        public int Position { get; set; }
+        public List<ComponentActionViewModel> Actions { get; set; } = new List<ComponentActionViewModel>();
+    }
+    public class ComponentTableInspectionViewModel {
+        public int Id { get; set; }
+        public EquipmentViewModel Equipment { get; set; }
+        public InspectionViewModel LastInspection { get; set; }
+        public IQueryable<ComponentViewViewModel> Components { get; set; }
+    }
+
+    public class ComponentViewResult {
+        public List<ComponentTableInspectionViewModel> ResultList { get; set; }
+        public SearchResult SearchResult { get; set; }
+        public int _clientReqId { get; set; }
+    }
+
+    public class RecommendedActionsViewModel {
+        public int EquipmentId { get; set; }
+        public IEnumerable<ComponentActionViewModel> RecommendedActions { get; set; }
+        public IEnumerable<ComponentActionViewModel> CompletedActions { get; set; }
+    }
+
+    public class ComponentSearchViewModel
+    {
+        public List<ucDashbordViewModel> ResultList { get; set; }
+        public SearchResult SearchResult { get; set; }
+        public int _clientReqId { get; set; }
+    }
+
+    public class CompartSearchViewModel
+    {
+        public int CompartId { get; set; }
+        public string CompartName { get; set; }
+        public string CompartType { get; set; }
+        public string Models { get; set; }
+        public string Make { get; set; }
+    }
+
+
+    public class MeasurementToolsViewModel
+    {
+        public int ToolId { get; set; }
+        public string ToolName { get; set; }
+        public string ToolCode { get; set; }
+
+    }
+
+
+    public class CompartMeasurementPonitsViewModel
+    {
+        public CompartSearchViewModel Compart { get; set; }
+        public List<MeasurementPonitsViewModel> MeasurementPointsViewModels { get; set; }
+    }
+
+    public class MeasurementPonitsViewModel
+    {
+        public int MeasurementPonitId { get; set; }
+        public int CompartId { get; set; }
+        public string Name { get; set; }
+        public int Order { get; set; }
+        public int DefaultNumberOfMeasurements { get; set; }
+        public int? DefaultToolId { get; set; }
+        public bool isDisabled { get; set; }
+        public int? BugetLife { get; set; }
+    }
+
+
+    public class CreateMeasurementPointModel : MeasurementPonitsViewModel
+    {
+        public string Image { get; set; }
+    }
+
+
+    public class SearchItemsParam {
+        public List<SearchItem> SearchItems { get; set; } = new List<SearchItem>();
+        public int PageNo { get; set; }
+        public int PageSize { get; set; }
+        public int _clientReqId { get; set; }
+    }
+
+}

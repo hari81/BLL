@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props" Condition="Exists('packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{636DDEC9-D258-4E69-A0A5-95E5DAEEA516}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HiQPdf, Version=10.17.0.0, Culture=neutral, PublicKeyToken=acd8b62594985b24, processorArchitecture=MSIL">
+      <HintPath>..\tt-ui\packages\hiqpdf.10.17.0\lib\net40\HiQPdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ApplicationInsights.DependencyCollector.2.4.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.4.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.4.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ApplicationInsights.Web.2.4.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ApplicationInsights.WindowsServer.2.4.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ApplicationInsights.2.4.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administration\AdministrationManager.cs" />
+    <Compile Include="Administration\CustomerManager.cs" />
+    <Compile Include="Administration\DealershipManager.cs" />
+    <Compile Include="Administration\EmailManager.cs" />
+    <Compile Include="Administration\JobsiteManager.cs" />
+    <Compile Include="Administration\Models\CustomerModels.cs" />
+    <Compile Include="Administration\Models\DealershipModels.cs" />
+    <Compile Include="Administration\Models\JobsiteModels.cs" />
+    <Compile Include="Administration\Models\UserModels.cs" />
+    <Compile Include="Administration\UserManager.cs" />
+    <Compile Include="AuthCore\TTAuthorization.cs" />
+    <Compile Include="BLLStart\AutoMapperConfig.cs" />
+    <Compile Include="Constants\SearchConstants.cs" />
+    <Compile Include="Core\Actions\InsertInspectionGeneralAction.cs" />
+    <Compile Include="Core\Actions\SMUReadingAction.cs" />
+    <Compile Include="Core\Actions\UpdateEquipmentSetupAction.cs" />
+    <Compile Include="Core\Actions\UpdateInspectionGeneralAction.cs" />
+    <Compile Include="Core\Actions\UpdateUndercarriageSetupAction.cs" />
+    <Compile Include="Core\Audit\InterpretationAudit.cs" />
+    <Compile Include="Core\Domain\Action.cs" />
+    <Compile Include="Core\Domain\ActionLifeUpdate.cs" />
+    <Compile Include="Core\Domain\ActionParams.cs" />
+    <Compile Include="Core\Domain\AppConfigAccess.cs" />
+    <Compile Include="Core\Domain\Compart.cs" />
+    <Compile Include="Core\Domain\Constatnts.cs" />
+    <Compile Include="Core\Domain\Dashboard.cs" />
+    <Compile Include="Core\Domain\EnumExtensions.cs" />
+    <Compile Include="Core\Domain\FindInspection.cs" />
+    <Compile Include="Core\Domain\History.cs" />
+    <Compile Include="Core\Domain\Interpretation.cs" />
+    <Compile Include="Core\Domain\Preferences.cs" />
+    <Compile Include="Core\Domain\Print\Print.cs" />
+    <Compile Include="Core\Domain\WSRE_TEMP_UPLOAD_IMAGE.cs" />
+    <Compile Include="Core\Domain\TEMP_UPLOAD_IMAGE.cs" />
+    <Compile Include="Core\Domain\Dealership.cs" />
+    <Compile Include="Core\Domain\Inspection.cs" />
+    <Compile Include="Core\Domain\JobSite.cs" />
+    <Compile Include="Core\Domain\MiningShovelDomain\MeasurementPoint.cs" />
+    <Compile Include="Core\Domain\MiningShovelDomain\UCInspection.cs" />
+    <Compile Include="Core\Domain\SetupEquipment.cs" />
+    <Compile Include="Core\Domain\CUSTOMER_MODEL_MANDATORY_IMAGE.cs" />
+    <Compile Include="Core\Domain\TrackTool.cs" />
+    <Compile Include="Core\Domain\LuModuleSub.cs" />
+    <Compile Include="Core\Domain\UserAccess.cs" />
+    <Compile Include="Core\Domain\UserAccessDomain\CustomerAccess.cs" />
+    <Compile Include="Core\Domain\UserAccessDomain\DealerAccess.cs" />
+    <Compile Include="Core\Domain\UserAccessDomain\DealerGroupAccess.cs" />
+    <Compile Include="Core\Domain\UserAccessDomain\EquipmentAccess.cs" />
+    <Compile Include="Core\Domain\UserAccessDomain\JobsiteAccess.cs" />
+    <Compile Include="Core\Domain\UserAccessDomain\SupportTeamAccess.cs" />
+    <Compile Include="Core\Domain\TrackInspectionImageTypes.cs" />
+    <Compile Include="Core\Domain\WSREInitialImageType.cs" />
+    <Compile Include="Core\Domain\LinksCondition.cs" />
+    <Compile Include="Core\Domain\SearchFavorite.cs" />
+    <Compile Include="Core\Domain\SharedDomain.cs" />
+    <Compile Include="Core\Domain\Types.cs" />
+    <Compile Include="Core\Domain\Component.cs" />
+    <Compile Include="Core\Domain\Customer.cs" />
+    <Compile Include="Core\Domain\Equipment.cs" />
+    <Compile Include="Core\Domain\UCDomain.cs" />
+    <Compile Include="Core\Domain\UCModel.cs" />
+    <Compile Include="Core\Domain\UCSystem.cs" />
+    <Compile Include="Core\Domain\User.cs" />
+    <Compile Include="Core\Domain\UserRequest.cs" />
+    <Compile Include="Core\Domain\ViewModel.cs" />
+    <Compile Include="Core\ManageEquipment\ComponentManager.cs" />
+    <Compile Include="Core\ManageEquipment\ManageEquipmentManager.cs" />
+    <Compile Include="Core\ManageEquipment\ViewModels\ManageEquipmentViewModel.cs" />
+    <Compile Include="Core\MiningShovel\MiningShovelManager.cs" />
+    <Compile Include="Core\MiningShovel\ComponentMeasurementTable.cs" />
+    <Compile Include="Core\MiningShovel\MiningShovelMobileManager.cs" />
+    <Compile Include="Core\MiningShovel\Models\MiningShovelMobileAPIModel.cs" />
+    <Compile Include="Core\MiningShovel\Models\MiningShovelMobileSyncModel.cs" />
+    <Compile Include="Core\MiningShovel\MiningShovelMobileSyncManager.cs" />
+    <Compile Include="Core\MiningShovel\Models\MiningShovelModel.cs" />
+    <Compile Include="Core\MiningShovel\RopeShovelInspectionManager.cs" />
+    <Compile Include="Core\ViewModel\FindInspection.cs" />
+    <Compile Include="Core\ViewModel\HistoryViewModel.cs" />
+    <Compile Include="Core\ViewModel\InterpretationViewModel.cs" />
+    <Compile Include="Core\ViewModel\PreferencesViewModel.cs" />
+    <Compile Include="Core\ViewModel\QuoteReportViewModel.cs" />
+    <Compile Include="Core\ViewModel\UserAccessViewModel.cs" />
+    <Compile Include="Core\ViewModel\UserViewModel.cs" />
+    <Compile Include="Core\Widgets\WidgetManager.cs" />
+    <Compile Include="Core\WSRE\Models\WorkshopRepairEstimateDownloadModel.cs" />
+    <Compile Include="Core\WSRE\Models\WorkshopRepairEstimateMobileModel.cs" />
+    <Compile Include="Core\ViewModel\ActionViewModel.cs" />
+    <Compile Include="Core\ViewModel\DashboardViewModel.cs" />
+    <Compile Include="Core\ViewModel\EquipmentViewModel.cs" />
+    <Compile Include="Core\ViewModel\InspectionViewModel.cs" />
+    <Compile Include="Core\ViewModel\SearchViewModel.cs" />
+    <Compile Include="Core\WSRE\Models\WorkshopRepairEstimateSearchModel.cs" />
+    <Compile Include="Core\WSRE\Models\WorkshopRepairEstimateModel.cs" />
+    <Compile Include="Core\WSRE\WSREMobileDownloadDB.cs" />
+    <Compile Include="Core\WSRE\WSREMobileCreateNewChain.cs" />
+    <Compile Include="Core\WSRE\WSREMobileManager.cs" />
+    <Compile Include="Core\WSRE\WSREManager.cs" />
+    <Compile Include="Core\Middleware\InventoryAction.cs" />
+    <Compile Include="Core\Middleware\OldMenu.cs" />
+    <Compile Include="Core\Middleware\SystemComponentSetup.cs" />
+    <Compile Include="Core\Actions\ChangeMeterUnitAction.cs" />
+    <Compile Include="Core\Actions\InstallComponentOnSystemAction.cs" />
+    <Compile Include="Core\Actions\InstallSystemAction.cs" />
+    <Compile Include="Core\Actions\UpdateInspectionAction.cs" />
+    <Compile Include="Core\Actions\InsertInspectionAction.cs" />
+    <Compile Include="Core\Actions\ReplaceComponentAction.cs" />
+    <Compile Include="Core\Actions\ReplaceSystemAction.cs" />
+    <Compile Include="Core\Middleware\ViewModel.cs" />
+    <Compile Include="Core\UCReport\Report.cs" />
+    <Compile Include="Core\ViewModel\SetupViewModel.cs" />
+    <Compile Include="Extensions\ActionTypeExtensions.cs" />
+    <Compile Include="Extensions\DataTableExtensions.cs" />
+    <Compile Include="Extensions\EpochTimeExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Extensions\ImageExtensions.cs" />
+    <Compile Include="Extensions\LinqExtensions.cs" />
+    <Compile Include="Extensions\QueryExtensions.cs" />
+    <Compile Include="Extensions\TypeExtension.cs" />
+    <Compile Include="Extensions\WornCalculationExtension.cs" />
+    <Compile Include="GETCore\Classes\ApplicationAccessTypes.cs" />
+    <Compile Include="GETCore\Classes\AuthorizeUserAccess.cs" />
+    <Compile Include="GETCore\Classes\ComponentManagement.cs" />
+    <Compile Include="GETCore\Classes\CustomerManagement.cs" />
+    <Compile Include="GETCore\Classes\GETEquipment.cs" />
+    <Compile Include="GETCore\Classes\EventManagement.cs" />
+    <Compile Include="GETCore\Classes\GETImplement.cs" />
+    <Compile Include="GETCore\Classes\GETInspection.cs" />
+    <Compile Include="GETCore\Classes\GET_ACTIONS_constants.cs" />
+    <Compile Include="GETCore\Classes\ImplementTemplateManager.cs" />
+    <Compile Include="GETCore\Classes\InventoryManagement.cs" />
+    <Compile Include="GETCore\Classes\JobsiteManagement.cs" />
+    <Compile Include="GETCore\Classes\ResponseMessage.cs" />
+    <Compile Include="GETCore\Classes\UserAccessTypes.cs" />
+    <Compile Include="GETCore\Classes\UserAccountType.cs" />
+    <Compile Include="GETCore\Classes\UserManagement.cs" />
+    <Compile Include="GETCore\Classes\Util.cs" />
+    <Compile Include="GETCore\Classes\ViewModel\GETViewModel.cs" />
+    <Compile Include="GETCore\Classes\ViewModel\ImplementTemplateViewModel.cs" />
+    <Compile Include="GETCore\Classes\ViewModel\UserViewModel.cs" />
+    <Compile Include="GETCore\Repositories\AttachImplementToEquipmentAction.cs" />
+    <Compile Include="GETCore\Repositories\GETComponentReplacementAction.cs" />
+    <Compile Include="GETCore\Repositories\GETEquipmentSetupAction.cs" />
+    <Compile Include="GETCore\Repositories\GETFlagIgnoredAction.cs" />
+    <Compile Include="GETCore\Repositories\GETImplementSetupAction.cs" />
+    <Compile Include="GETCore\Repositories\GETInspectionAction.cs" />
+    <Compile Include="GETCore\Repositories\GETUndoComponentReplacementAction.cs" />
+    <Compile Include="GETCore\Repositories\MoveImplementToInventoryAction.cs" />
+    <Compile Include="GETInterfaces\Enum.cs" />
+    <Compile Include="GETInterfaces\IImplementManager.cs" />
+    <Compile Include="GETInterfaces\IUserManager.cs" />
+    <Compile Include="Interfaces\IAction.cs" />
+    <Compile Include="GETInterfaces\IImplementTemplateManager.cs" />
+    <Compile Include="IRepos\IEquipmentRepository.cs" />
+    <Compile Include="IRepos\IUCSystemRepository.cs" />
+    <Compile Include="IRepos\IUserRepository.cs" />
+    <Compile Include="Interfaces\IActionLifeUpdate.cs" />
+    <Compile Include="Interfaces\IActionParams.cs" />
+    <Compile Include="Interfaces\ICompart.cs" />
+    <Compile Include="Interfaces\IComponent.cs" />
+    <Compile Include="Interfaces\ICustomer.cs" />
+    <Compile Include="Interfaces\IEquipment.cs" />
+    <Compile Include="Interfaces\IInspectionAction.cs" />
+    <Compile Include="Interfaces\IJobSite.cs" />
+    <Compile Include="Interfaces\IUCSystem.cs" />
+    <Compile Include="Interfaces\IUser.cs" />
+    <Compile Include="Persistence\Repositories\ComponentRepository.cs" />
+    <Compile Include="Persistence\Repositories\EquipmentRepository.cs" />
+    <Compile Include="Persistence\Repositories\Repository.cs" />
+    <Compile Include="Persistence\Repositories\UserRepository.cs" />
+    <Compile Include="Persistence\UnitOfWork.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IRepos\IComponentRepository.cs" />
+    <Compile Include="IRepos\IRepository.cs" />
+    <Compile Include="Core\IUnitOfWork.cs" />
+    <Compile Include="Security\StringCipher.cs" />
+    <Compile Include="Services\ComponentService.cs" />
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\EquipmentService.cs" />
+    <Compile Include="Services\JobSiteService.cs" />
+    <Compile Include="BLLStart\NinjectBindings.cs" />
+    <Compile Include="Services\ResizeImage.cs" />
+    <Compile Include="Services\UCSystemService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="AuthCore\User.cs" />
+    <Compile Include="Services\ValidateEmail.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\OldPdfReport\" />
+    <Folder Include="GETCore\Domain\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{D7100CF1-7598-45F3-8B8E-CF86506B52C3}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TTTest|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Production|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ITMProduction|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ITMStaging|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BercoProduction|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'BercoStaging|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TrackSparesStaging|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TrackSparesProduction|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ITRStaging|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ITRProduction|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57759</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:57759/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <!-- <Error Condition="!Exists('..\..\..\..\..\..\..\inetpub\wwwroot\TTDev\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\..\..\inetpub\wwwroot\TTDev\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Net.Compilers.2.2.0\build\Microsoft.Net.Compilers.props'))" /> -->
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
